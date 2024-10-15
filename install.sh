@@ -6,9 +6,11 @@ echo "╔══╣ Install: Sobit Navigation Stack (STARTING) ╠══╗"
 
 sudo apt-get update
 
-cd ~/catkin_ws/src/sobit_navigation_stack/
+# Keep track of the current directory
+DIR=`pwd`
 mkdir sobit_navigation_packages
-cd ~/catkin_ws/src/sobit_navigation_stack/sobit_navigation_packages/
+cd sobit_navigation_packages/
+
 if [ "clone_mode" == $1 ]; then
     echo -e "\e[34m git clone mode \e[m"
     git clone https://github.com/ros-perception/slam_gmapping.git
@@ -28,7 +30,7 @@ else
 fi
 
 git clone https://github.com/TeamSOBITS/als_ros.git
-cd ~/catkin_ws/src/sobit_navigation_stack/
+cd $DIR
 
 # Install gmapping, amcl, move_base etc.
 sudo apt-get install -y \
